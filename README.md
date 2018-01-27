@@ -5,16 +5,16 @@ Target OS
 - Centos7
 
 On your machine:
-- Make sure you have ansbile installed
+- Make sure you have ansbile installed on your local machine
 
 Create user to use with ansible as root
 
 Create user:
-> adduser ansible
+	adduser ansible
 Set password
-> passwd ansible
+	passwd ansible
 Add to root group
-> usermod -aG wheel ansible
+	usermod -aG wheel ansible
 
 
 Granted permission to execute sudo with password
