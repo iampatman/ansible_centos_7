@@ -1,0 +1,9 @@
+- name: install xvfb
+  apt: name=xvfb state=present
+  when: ansible_os_family == 'Debian'
+- name: install chromium
+  apt: name=chromium state=present
+  when: ansible_os_family == 'Debian'
+- name: install chromium-driver
+  apt: name=chromium-driver state=present
+  when: ansible_os_family == 'Debian'

@@ -1,0 +1,27 @@
+- hosts: symserver
+  user: "{{ username }}"
+  become: yes
+  vars: 
+    - WelcomeMsg: "Welcome to this demo"
+    - java_package: java-1.8.0-openjdk
+  vars_files:
+    - vars/server.yml
+  roles:
+    # - update
+    # - nginx
+    # - node
+    # - yarn
+    - php7
+    # - mariadb
+    # - apache
+    # - docker
+    # - emacs
+    # - git
+    # - go
+    # - role: java
+    #   java_packages:
+    #     - "{{ java_package }}"
+
+
+    
+  

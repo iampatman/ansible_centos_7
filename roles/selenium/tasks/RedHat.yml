@@ -1,0 +1,10 @@
+- name: install xvfb
+  yum: name=xorg-x11-server-Xvfb state=present
+  when: ansible_os_family == 'RedHat'
+- name: install chrome-stable
+  yum: name=chrome-stable state=present
+  when: ansible_os_family == 'Redhat'
+- name: Download chrome-driver
+  get_url: url="https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip" dest=/tmp mode=0777
+- name: install chrome-driver
+  unarchive: src="/tmp/chromedriver_linux64.zip" dest=/usr/local/bin/ mode=0700 copy=no

@@ -1,0 +1,8 @@
+- name: deploy /etc/sysconfig/iptables
+  become: yes
+  copy: src=iptables.rules dest=/etc/sysconfig/iptables owner=root group=root mode=644 backup=yes
+- name: systemctl enable iptables
+  become: yes
+  systemd:
+    name: iptables
+    enabled: True

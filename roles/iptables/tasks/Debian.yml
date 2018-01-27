@@ -1,0 +1,10 @@
+- name: install iptables-persistent
+  become: yes
+  apt: name=iptables-persistent state=present
+  when: ansible_os_family == 'Debian'
+- name: deploy /etc/iptables/rules.v4
+  become: yes
+  copy: src=iptables.rules dest=/etc/iptables/rules.v4 owner=root group=root mode=640 backup=yes
+- name: deploy /etc/iptables/rules.v6
+  become: yes
+  copy: src=rules.v6 dest=/etc/iptables/rules.v6 owner=root group=root mode=640 backup=yes
