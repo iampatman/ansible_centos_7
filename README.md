@@ -9,26 +9,35 @@ On your machine:
 
 Create user to use with ansible as root
 
+Create user:
 > adduser ansible
-
+Set password
 > passwd ansible
-
+Add to root group
 > usermod -aG wheel ansible
 
-> echo 'ansible ALL=(ALL) ALL' | sudo EDITOR='tee -a' visudo
-> echo '%wheel ALL=(ALL) ALL' | sudo EDITOR='tee -a' visudo
-> echo '%wheel ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+
+Granted permission to execute sudo with password
+
+	echo 'ansible ALL=(ALL) ALL' | sudo EDITOR='tee -a' visudo
+
+	echo '%wheel ALL=(ALL) ALL' | sudo EDITOR='tee -a' visudo
+
+	echo '%wheel ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
+
+
+
 User name should be ansible
 
 Edit hosts file and set your ip/domain in server section
 
 Test ssh connection:
 
-ansible -i hosts server -m ping -u ansible
+	ansible -i hosts server -m ping -u ansible
 
 Run ansible script
 
-ansible-playbook -i hosts -u ansible main.yaml
+	ansible-playbook -i hosts -u ansible main.yaml
 
 Write variables and passwords in vars/server.yml
 Encrypt server.yml in advance with the following command
